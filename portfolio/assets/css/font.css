@@ -1,0 +1,14 @@
+/* Outfit font settings */
+.outfit-base {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: -3px;
+}
+
+h1.outfit-base {
+    font-size: clamp(2rem, 8vw, 10rem);
+    line-height: 1.2;
+
+}

@@ -1,0 +1,103 @@
+/* ===========================
+   Responsive Adjustments
+   =========================== */
+
+/* Medium screens (tablets, <= 1024px) */
+@media (max-width: 1024px) {
+    .logo {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+    }
+
+    .outfit-base {
+        font-size: 3rem;
+        letter-spacing: -2px;
+    }
+
+    .sidebar {
+        left: 1rem;
+        gap: 1rem;
+    }
+
+    .sidebar nav a {
+        height: 4rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small screens (phones, <= 768px) */
+@media (max-width: 768px) {
+    .burger {
+        display: block; /* show burger */
+    }
+
+    .logo {
+        display: none; /* hide logo on phones */
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 200px;
+        background: rgba(0,0,0,0.85);
+        transform: translateX(-100%); /* hidden off-screen */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease;
+        z-index: 999;
+    }
+
+    .sidebar.open {
+        transform: translateX(0); /* slide in */
+    }
+
+    .sidebar nav {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .sidebar nav a {
+        writing-mode: horizontal-tb;
+        text-orientation: initial;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+}
+
+    .outfit-base {
+        font-size: 2rem;
+        letter-spacing: -1px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .scroll-arrow {
+        font-size: 1.5rem;
+        bottom: 4rem; /* lift it above mobile nav */
+    }
+
+
+/* Extra small screens (<= 480px) */
+@media (max-width: 480px) {
+    .outfit-base {
+        font-size: 1.6rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .subtitle {
+        font-size: 0.7rem;
+    }
+}

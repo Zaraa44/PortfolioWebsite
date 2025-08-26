@@ -4,56 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/layout.css">
-    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/font.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/menu.css">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="overlay">
+    <!-- HEADER -->
     <header class="topbar">
-        <div class="logo">NZA</div>
-
+        <!-- Burger -->
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
 
+    <!-- FULLSCREEN MOBILE MENU -->
+    <div class="menu" id="menu">
+        <button class="menu-close" id="menuClose" aria-label="Close menu">&times;</button>
+        <nav>
+            <a href="#hero" data-i18n="nav_home">Home</a>
+            <a href="#about" data-i18n="nav_about">About</a>
+            <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+            <a href="#contact" data-i18n="nav_contact">Contact</a>
+            <div class="lang-toggle-mobile" aria-label="Language">
+                <button type="button" class="lang-pill" data-lang="en">EN</button>
+                <button type="button" class="lang-pill" data-lang="nl">NL</button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- DESKTOP SIDEBAR -->
     <aside class="sidebar">
         <nav>
-            <a href="#hero">Home</a>
-            <a> ───────  </a>
-            <a class="link" href="#about">About</a>
-            <a> ───────  </a>
-            <a href="#portfolio">Portfolio</a>
-            <a> ───────  </a>
-            <a href="#contact">Contact</a>
+            <a href="#hero" data-i18n="nav_home">Home</a>
+            <a> ─────── </a>
+            <a class="link" href="#about" data-i18n="nav_about">About</a>
+            <a> ─────── </a>
+            <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+            <a> ─────── </a>
+            <a href="#contact" data-i18n="nav_contact">Contact</a>
         </nav>
     </aside>
 
+    <!-- MAIN CONTENT -->
     <main class="scroll-container">
+        <!-- HERO -->
         <section class="section hero" id="hero">
-            <h1 class="outfit-base">Hi,<br>my name is Nisa.</h1>
-            <p class="subtitle">And I made this website</p>
-            <div class="scroll-arrow">&#8595;</div>
+            <h1 class="outfit-base">
+                <span id="typewriter" aria-live="polite"></span>
+            </h1>
+            <p class="subtitle" data-i18n="hero_subtitle">And I made this website</p>
+            <div class="scroll-arrow" aria-hidden="true">&#8595;</div>
         </section>
 
+
+        <!-- ABOUT -->
         <section class="section about" id="about">
-            <h2>About Me</h2>
-            <p>Some text here...</p>
+            <h2 data-i18n="about_title">About Me</h2>
+            <p data-i18n="about_text">Some text here...</p>
         </section>
 
+        <!-- PORTFOLIO -->
         <section class="section portfolio" id="portfolio">
-            <h2>My Work</h2>
-            <p>Portfolio projects...</p>
+            <h2 data-i18n="portfolio_title">My Work</h2>
+            <p data-i18n="portfolio_text">Portfolio projects...</p>
         </section>
 
+        <!-- CONTACT -->
         <section class="section portfolio" id="contact">
-            <h2>Contact</h2>
+            <h2 data-i18n="contact_title">Contact</h2>
             <p>0654645864645...</p>
         </section>
     </main>
 </div>
-<script src="assets/js/app.js"></script>
-</body>
 
+<!-- Scripts -->
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
+
+</body>
 </html>

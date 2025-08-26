@@ -1,0 +1,66 @@
+/* Sticky nav */
+.topbar, .sidebar {
+    position: fixed;
+    z-index: 10;
+}
+
+/* Top bar */
+.topbar {
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgb(108, 146, 115);
+    font-weight: bolder;
+    letter-spacing: -0.3rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+}
+
+.sidebar {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.sidebar nav a {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-decoration: none;
+    color: #344737;
+    margin: 0;
+    transition: color 0.3s;
+    position: relative;
+    padding: 1rem 0.5rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar nav a:hover {
+    color: #fff;
+}
+
+
+
+
+
+
