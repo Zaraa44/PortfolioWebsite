@@ -1,0 +1,171 @@
+/* Reset basics */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Outfit', sans-serif;
+    color: #fff;
+    height: 100vh;
+    background: radial-gradient(circle at 30% 30%, #699173, #dad4a2 70%);
+    overflow: hidden;
+}
+
+/* Layout */
+.overlay {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* For Chrome, Safari, Edge */
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* For Firefox */
+.scroll-container {
+    scrollbar-width: none;
+}
+
+/* For IE/old Edge */
+.scroll-container {
+    -ms-overflow-style: none;
+}
+
+/* Sticky nav */
+.topbar, .sidebar {
+    position: fixed;
+    z-index: 10;
+}
+.topbar { top: 0; width: 100%; }
+.sidebar { left: 2rem; top: 50%; transform: translateY(-50%); }
+
+/* Scroll snapping container */
+.scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* Each section full screen */
+.section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgb(108, 146, 115);
+    font-weight: bolder;
+    letter-spacing: -0.3rem;
+    margin-right: 2rem ;
+    margin-top: 1rem;
+}
+
+.sidebar {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.sidebar nav a {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-decoration: none;
+    color: #344737;
+    margin: 0;
+    transition: color 0.3s;
+    position: relative;
+    padding: 1rem 0.5rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.sidebar nav a:hover { color: #fff; }
+
+
+.hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    max-width: 700px;
+}
+
+
+.outfit-base {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 4rem;
+    letter-spacing: -3px;
+
+}
+
+.scroll-arrow {
+    position: absolute;
+    bottom: 2rem;          /* keep it near bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #ffffff;
+    opacity: 0.7;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    z-index: 5;
+}
+
+/* Simple bounce animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
