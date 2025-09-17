@@ -120,3 +120,78 @@ langPills.forEach(pill => {
     setLang(window.I18N[browser] ? browser : 'en');
 })();
 
+// Scroll reveal effect for About Me
+const fadeEls = document.querySelectorAll('#about .fade-in');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+
+fadeEls.forEach(el => observer.observe(el));
+
+// Skill bars vullen als ze in beeld komen + percentage telt op
+(() => {
+  const bars = document.querySelectorAll('#about .skill-bars .progress');
+  if (!bars.length) return;
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      const bar = entry.target;
+      bar.classList.add('fill');         // triggert scaleX-animatie
+
+      // percentage-label animeren van 0 → doel (uit de tekst, bv. "90%")
+      const label = bar.querySelector('span');
+      if (label) {
+        const target = parseInt(label.textContent, 10) || 0;
+        label.textContent = '0%';
+        const start = performance.now();
+        const duration = 2000;
+
+        const tick = (now) => {
+          const p = Math.min((now - start) / duration, 1);
+          label.textContent = Math.round(p * target) + '%';
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+
+      obs.unobserve(bar); // één keer animeren
+    });
+  }, { threshold: 0.15 });
+
+  bars.forEach(b => io.observe(b));
+})();
+
+// Typewriter effect for About Me
+const aboutEl = document.getElementById('about-typewriter');
+if (aboutEl) {
+  const text = aboutEl.textContent.trim(); // originele tekst
+  aboutEl.textContent = ""; // leegmaken
+  let i = 0;
+
+  function typeWriter() {
+    if (i < text.length) {
+      aboutEl.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 40); // snelheid aanpassen (ms per letter)
+    }
+  }
+
+  // Start effect wanneer sectie in beeld komt
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        typeWriter();
+        obs.disconnect(); // maar één keer uitvoeren
+      }
+    });
+  }, { threshold: 0.4 });
+
+  observer.observe(aboutEl);
+}
